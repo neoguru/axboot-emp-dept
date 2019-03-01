@@ -42,6 +42,9 @@ public class AXBootTokenAuthenticationService {
     @Inject
     private MenuService menuService;
 
+    @Inject
+    private MobileMenuService mobileMenuService;
+
     public AXBootTokenAuthenticationService() {
         jwtSessionHandler = new JWTSessionHandler(DatatypeConverter.parseBase64Binary("YXhib290"));
     }
