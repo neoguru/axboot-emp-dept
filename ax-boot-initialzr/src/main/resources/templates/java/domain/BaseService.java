@@ -14,6 +14,7 @@ import ${basePackage}.domain.notice.attach.QNoticeAttach;
 import ${basePackage}.domain.scheduler.QScheduler;
 import ${basePackage}.domain.scheduler.repeat.QSchedulerRepeat;
 import ${basePackage}.domain.scheduler.repeat.change.QSchedulerRepeatChange;
+import ${basePackage}.domain.employee.QEmployee;
 import com.chequer.axboot.core.domain.base.AXBootBaseService;
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 
@@ -37,6 +38,8 @@ public class BaseService<T, ID extends Serializable> extends AXBootBaseService<T
     protected QScheduler qScheduler = QScheduler.scheduler;
     protected QSchedulerRepeat qSchedulerRepeat = QSchedulerRepeat.schedulerRepeat;
     protected QSchedulerRepeatChange qSchedulerRepeatChange = QSchedulerRepeatChange.schedulerRepeatChange;
+    
+    protected QEmployee qEmployee = QEmployee.employee;
         
     protected AXBootJPAQueryDSLRepository<T, ID> repository;
 

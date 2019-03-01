@@ -142,6 +142,7 @@ public class AXBootTokenAuthenticationService {
             scriptSessionVO.getDetails().put("language", requestUtils.getLocale(request).getLanguage());
             
             scriptSessionVO.getDetails().put("authGroup", user.getAuthGroupList().get(0));                  //2017.06.28 추가 js에서 권한그룹 사용위해 추가
+            scriptSessionVO.getDetails().put("noEmployee", user.getNoEmployee());                           //2017.06.28 추가 js에서 noEmployee 사용위해 추가
             
             requestUtils.setAttribute("loginUser", user);
             requestUtils.setAttribute("scriptSession", JsonUtils.toJson(scriptSessionVO));
@@ -154,7 +155,6 @@ public class AXBootTokenAuthenticationService {
                 requestUtils.setAttribute("menuJson", JsonUtils.toJson(menuList));
             }
         }
-
 
         setUserEnvironments(user, response);
 

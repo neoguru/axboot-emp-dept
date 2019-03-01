@@ -86,6 +86,18 @@ public class UserService extends BaseService<User, String> {
         return user;
     }
 
+    public User getUserByNoEmployee(Integer noEmployee) {
+
+    	User user = userRepository.findByNoEmployee(noEmployee);
+    	
+    	if (user != null) {
+    		user.setAuthList(userAuthService.findByUserCd(user.getUserCd()));
+    		user.setRoleList(userRoleService.findByUserCd(user.getUserCd()));
+        }
+
+    	return user;
+    }
+
     public List<User> get(RequestParams requestParams) {
         String userCd = requestParams.getString("userCd");
         String filter = requestParams.getString("filter");

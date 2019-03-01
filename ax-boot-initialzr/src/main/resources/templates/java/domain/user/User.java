@@ -3,6 +3,7 @@ package ${basePackage}.domain.user;
 import ${basePackage}.domain.BaseJpaModel;
 import ${basePackage}.domain.user.auth.UserAuth;
 import ${basePackage}.domain.user.role.UserRole;
+import ${basePackage}.domain.employee.Employee;
 import com.chequer.axboot.core.annotations.ColumnPosition;
 import com.chequer.axboot.core.annotations.Comment;
 import com.chequer.axboot.core.code.AXBootTypes;
@@ -46,6 +47,11 @@ public class User extends BaseJpaModel<String> {
     @ColumnPosition(3)
     private String userPs;
 
+    @Column(name = "NO_EMPLOYEE", precision = 10)
+    @Comment(value = "사원번호")
+    @ColumnPosition(4)
+    private Integer noEmployee;
+    
     @Column(name = "EMAIL", length = 50)
     @Comment(value = "이메일")
     @ColumnPosition(4)
@@ -103,6 +109,10 @@ public class User extends BaseJpaModel<String> {
     @Type(type = "labelEnum")
     @ColumnPosition(14)
     private AXBootTypes.Deleted delYn = AXBootTypes.Deleted.NO;
+
+    @OneToOne
+    @JoinColumn(name="NO_EMPLOYEE", referencedColumnName = "NO_EMPLOYEE", insertable = false, updatable = false)
+    private Employee employee; 
 
     @Transient
     private List<UserRole> roleList;
