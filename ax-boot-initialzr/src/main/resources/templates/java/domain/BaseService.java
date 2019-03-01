@@ -4,10 +4,16 @@ import ${basePackage}.domain.code.QCommonCode;
 import ${basePackage}.domain.file.QCommonFile;
 import ${basePackage}.domain.program.QProgram;
 import ${basePackage}.domain.program.menu.QMenu;
+import ${basePackage}.domain.program.mobileMenu.QMobileMenu;
 import ${basePackage}.domain.user.QUser;
 import ${basePackage}.domain.user.auth.QUserAuth;
 import ${basePackage}.domain.user.auth.menu.QAuthGroupMenu;
 import ${basePackage}.domain.user.role.QUserRole;
+import ${basePackage}.domain.notice.QNotice;
+import ${basePackage}.domain.notice.attach.QNoticeAttach;
+import ${basePackage}.domain.scheduler.QScheduler;
+import ${basePackage}.domain.scheduler.repeat.QSchedulerRepeat;
+import ${basePackage}.domain.scheduler.repeat.change.QSchedulerRepeatChange;
 import com.chequer.axboot.core.domain.base.AXBootBaseService;
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 
@@ -25,6 +31,13 @@ public class BaseService<T, ID extends Serializable> extends AXBootBaseService<T
     protected QMenu qMenu = QMenu.menu;
     protected QCommonFile qCommonFile = QCommonFile.commonFile;
 
+    protected QMobileMenu qMobileMenu = QMobileMenu.mobileMenu;
+    protected QNotice qNotice = QNotice.notice;
+    protected QNoticeAttach qNoticeAttach = QNoticeAttach.noticeAttach;
+    protected QScheduler qScheduler = QScheduler.scheduler;
+    protected QSchedulerRepeat qSchedulerRepeat = QSchedulerRepeat.schedulerRepeat;
+    protected QSchedulerRepeatChange qSchedulerRepeatChange = QSchedulerRepeatChange.schedulerRepeatChange;
+        
     protected AXBootJPAQueryDSLRepository<T, ID> repository;
 
     public BaseService() {
