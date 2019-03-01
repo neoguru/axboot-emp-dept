@@ -4,6 +4,8 @@ import ${basePackage}.domain.BaseService;
 import ${basePackage}.domain.program.ProgramService;
 import ${basePackage}.domain.program.menu.Menu;
 import ${basePackage}.domain.program.menu.MenuService;
+import ${basePackage}.domain.program.mobileMenu.MobileMenu;
+import ${basePackage}.domain.program.mobileMenu.MobileMenuService;
 import ${basePackage}.domain.user.SessionUser;
 import com.chequer.axboot.core.code.AXBootTypes;
 import com.chequer.axboot.core.parameter.RequestParams;
@@ -25,6 +27,9 @@ public class AuthGroupMenuService extends BaseService<AuthGroupMenu, AuthGroupMe
     private MenuService menuService;
 
     @Inject
+    private MobileMenuService mobileMenuService;
+
+    @Inject
     public AuthGroupMenuService(AuthGroupMenuRepository authGroupMenuRepository) {
         super(authGroupMenuRepository);
         this.authGroupMenuRepository = authGroupMenuRepository;
@@ -33,13 +38,19 @@ public class AuthGroupMenuService extends BaseService<AuthGroupMenu, AuthGroupMe
     public AuthGroupMenuVO get(RequestParams requestParams) {
         Long menuId = requestParams.getLong("menuId");
 
-        Menu menu = menuService.findOne(menuId);
         AuthGroupMenuVO authGroupMenuV2VO = new AuthGroupMenuVO();
 
         List<AuthGroupMenu> list = select().from(qAuthGroupMenu).where(qAuthGroupMenu.menuId.eq(menuId)).orderBy(qAuthGroupMenu.createdAt.asc()).fetch();
         authGroupMenuV2VO.setList(list);
-        authGroupMenuV2VO.setProgram(menu.getProgram());
 
+        if (menuId < 100000) {
+        	Menu menu = menuService.findOne(menuId);
+            authGroupMenuV2VO.setProgram(menu.getProgram());        	
+        } else {
+        	MobileMenu mobileMenu = mobileMenuService.findOne(menuId);
+            authGroupMenuV2VO.setProgram(mobileMenu.getProgram());        	
+        }
+        
         return authGroupMenuV2VO;
     }
 

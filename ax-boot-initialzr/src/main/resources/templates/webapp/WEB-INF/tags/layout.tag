@@ -22,6 +22,19 @@
         <%@ include file="layout/frame.tag" %>
     </c:when>
 
+    <c:when test="${name eq 'frame_1'}">
+        <%@ include file="layout/frame_1.tag" %>
+    </c:when>
+
+    <c:when test="${name eq 'mobile_frame'}">
+        <%@ include file="layout/mobile_frame.tag" %>
+    </c:when>
+
+    <c:when test="${name eq 'mobile_frame_1'}">
+        <%@ include file="layout/mobile_frame_1.tag" %>
+    </c:when>
+    
+
     <c:when test="${name eq 'modal'}">
         <%@ include file="layout/modal.tag" %>
     </c:when>

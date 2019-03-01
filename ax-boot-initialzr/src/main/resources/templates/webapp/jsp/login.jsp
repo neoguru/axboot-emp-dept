@@ -1,15 +1,28 @@
 <%@ page import="${basePackage}.domain.init.DatabaseInitService" %>
 <%@ page import="com.chequer.axboot.core.context.AppContextManager" %>
 <%@ page import="${basePackage}.utils.SessionUtils" %>
+<%@ page import="com.chequer.axboot.core.utils.MDCUtil" %>
+<%@ page import="${basePackage}.domain.user.MDCLoginUser" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="ax" tagdir="/WEB-INF/tags" %>
 <%boolean initialized = AppContextManager.getBean(DatabaseInitService.class).initialized();
 
     String lastNavigatedPage = null;
-
+    System.out.println(request);
+    
     if (SessionUtils.isLoggedIn()) {
-        lastNavigatedPage = "/jsp/main.jsp";
+
+    	MDCLoginUser loginUser = SessionUtils.getCurrentMdcLoginUser(request);
+    	System.out.println(loginUser.getDeviceType());
+
+    	if (loginUser.getDeviceType().toString() == "COMPUTER")
+    		lastNavigatedPage = "/jsp/main.jsp";										 // computer login : axboot application framework : top menu view 
+//    		lastNavigatedPage = "/jsp/main_1.jsp";					 				// computer login : shamcey application framework : top menu view
+    	else
+//    		lastNavigatedPage = "/jsp/mobile_main.jsp";						// mobile login : adminLTE application framework : top menu not view
+    		lastNavigatedPage = "/jsp/mobile_main_1.jsp";					// mobile login : shamcey application framework : top menu not view
+    	
     }
 
     if (initialized) {

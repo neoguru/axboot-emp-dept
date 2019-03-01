@@ -5,6 +5,8 @@ import ${basePackage}.domain.program.Program;
 import ${basePackage}.domain.program.ProgramService;
 import ${basePackage}.domain.program.menu.Menu;
 import ${basePackage}.domain.program.menu.MenuService;
+import ${basePackage}.domain.program.mobileMenu.MobileMenu;
+import ${basePackage}.domain.program.mobileMenu.MobileMenuService;
 import ${basePackage}.domain.user.SessionUser;
 import ${basePackage}.domain.user.auth.menu.AuthGroupMenu;
 import ${basePackage}.domain.user.auth.menu.AuthGroupMenuService;
@@ -86,39 +88,70 @@ public class AXBootTokenAuthenticationService {
         }
 
         if (!requestUri.startsWith(ContextUtil.getBaseApiPath())) {
+        	
             if (menuId > 0) {
-                Menu menu = menuService.findOne(menuId);
+            	
+            	if (menuId < 100000) {														
+                    Menu menu = menuService.findOne(menuId);
 
-                if (menu != null) {
-                    Program program = menu.getProgram();
+                    if (menu != null) {
+                        Program program = menu.getProgram();
 
-                    if (program != null) {
-                        requestUtils.setAttribute("program", program);
-                        requestUtils.setAttribute("pageName", menu.getLocalizedMenuName(request));
-                        requestUtils.setAttribute("pageRemark", program.getRemark());
+                        if (program != null) {
+                            requestUtils.setAttribute("program", program);
+                            requestUtils.setAttribute("pageName", menu.getLocalizedMenuName(request));
+                            requestUtils.setAttribute("pageRemark", program.getRemark());
 
-                        if (program.getAuthCheck().equals(AXBootTypes.Used.YES.getLabel())) {
-                            AuthGroupMenu authGroupMenu = authGroupMenuService.getCurrentAuthGroupMenu(menuId, user);
-                            if (authGroupMenu == null) {
-                                throw new AccessDeniedException("Access is denied");
+                            if (program.getAuthCheck().equals(AXBootTypes.Used.YES.getLabel())) {
+                                AuthGroupMenu authGroupMenu = authGroupMenuService.getCurrentAuthGroupMenu(menuId, user);
+                                if (authGroupMenu == null) {
+                                    throw new AccessDeniedException("Access is denied");
+                                }
+                                requestUtils.setAttribute("authGroupMenu", authGroupMenu);
                             }
-                            requestUtils.setAttribute("authGroupMenu", authGroupMenu);
                         }
                     }
-                }
+            	} else {																												/* 2018. 02. 12 수정 --> mobile menu 처리 */
+                    MobileMenu menu = mobileMenuService.findOne(menuId);
+
+                    if (menu != null) {
+                        Program program = menu.getProgram();
+
+                        if (program != null) {
+                            requestUtils.setAttribute("program", program);
+                            requestUtils.setAttribute("pageName", menu.getLocalizedMenuName(request));
+                            requestUtils.setAttribute("pageRemark", program.getRemark());
+
+                            if (program.getAuthCheck().equals(AXBootTypes.Used.YES.getLabel())) {
+                                AuthGroupMenu authGroupMenu = authGroupMenuService.getCurrentAuthGroupMenu(menuId, user);
+                                if (authGroupMenu == null) {
+                                    throw new AccessDeniedException("Access is denied");
+                                }
+                                requestUtils.setAttribute("authGroupMenu", authGroupMenu);
+                            }
+                        }
+                    }
+            	}
             }
 
             ScriptSessionVO scriptSessionVO = ModelMapperUtils.map(user, ScriptSessionVO.class);
             scriptSessionVO.setDateFormat(scriptSessionVO.getDateFormat().toUpperCase());
             scriptSessionVO.getDetails().put("language", requestUtils.getLocale(request).getLanguage());
+            
+            scriptSessionVO.getDetails().put("authGroup", user.getAuthGroupList().get(0));                  //2017.06.28 추가 js에서 권한그룹 사용위해 추가
+            
             requestUtils.setAttribute("loginUser", user);
             requestUtils.setAttribute("scriptSession", JsonUtils.toJson(scriptSessionVO));
 
-            if (progCd.equals("main")) {
+            if (progCd.equals("main") || progCd.equals("main_1")) {																	//2018.01.26 , 2018.02.20 수정
                 List<Menu> menuList = menuService.getAuthorizedMenuList(user.getMenuGrpCd(), user.getAuthGroupList());
+                requestUtils.setAttribute("menuJson", JsonUtils.toJson(menuList));
+            } else {     /* || progCd.equals("mobile_main")  || || progCd.equals("mobile_main_1") */
+                List<MobileMenu> menuList = mobileMenuService.getAuthorizedMenuList(user.getMenuGrpCd(), user.getAuthGroupList());
                 requestUtils.setAttribute("menuJson", JsonUtils.toJson(menuList));
             }
         }
+
 
         setUserEnvironments(user, response);
 

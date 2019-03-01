@@ -20,6 +20,8 @@ public class UploadParameters {
 
     private String desc;
 
+    private Integer noNotice;
+
     private boolean deleteIfExist;
 
     private boolean thumbnail = true;

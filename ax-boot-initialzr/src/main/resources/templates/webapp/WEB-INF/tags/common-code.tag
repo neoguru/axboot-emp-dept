@@ -12,6 +12,7 @@
 <%@ attribute name="defaultValue" required="false" %>
 <%@ attribute name="emptyValue" required="false" %>
 <%@ attribute name="emptyText" required="false" %>
+<%@ attribute name="style" required="false" %>
 
 <%
     if (StringUtils.isEmpty(type)) {
@@ -40,6 +41,10 @@
 
             if (StringUtils.isNotEmpty(dataPath)) {
                 builder.append("data-ax-path=\"" + dataPath + "\"");
+            }
+			// 2017.06.10 추가 : style tag 추가 -> ex)필수입력사항의 경우 border-color 설정 등...
+            if (StringUtils.isNotEmpty(style)) {
+                builder.append("style=\"" + style + "\"");
             }
 
             builder.append(">");
