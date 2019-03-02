@@ -58,6 +58,7 @@ public class AXBootUserDetailsService implements UserDetailsService {
         sessionUser.setMenuGrpCd(user.getMenuGrpCd());
 
         sessionUser.setNoEmployee(user.getNoEmployee());																	//noEmployee 
+        sessionUser.setNoDepartment(user.getEmployee().getNoDepartment());				//noDepartment
         
         userRoleList.forEach(r -> sessionUser.addAuthority(r.getRoleCd()));
         userAuthList.forEach(a -> sessionUser.addAuthGroup(a.getGrpAuthCd()));

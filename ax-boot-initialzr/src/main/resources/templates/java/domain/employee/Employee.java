@@ -1,6 +1,7 @@
 package ${basePackage}.domain.employee;
 
 import ${basePackage}.domain.BaseJpaModel;
+import ${basePackage}.domain.department.Department;
 import ${basePackage}.domain.user.User;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;
@@ -51,6 +52,11 @@ public class Employee extends BaseJpaModel<Integer> {
 	@Comment(value = "주민등록번호")
     @ColumnPosition(9)
 	private String noRegist;
+
+	@Column(name = "NO_DEPARTMENT", precision = 10, nullable = false)
+	@Comment(value = "소속부서번호")
+    @ColumnPosition(11)
+	private Integer noDepartment;
 
 	@Column(name = "CD_POSITION", length = 50)
 	@Comment(value = "직책")
@@ -106,6 +112,10 @@ public class Employee extends BaseJpaModel<Integer> {
 	@Comment(value = "주소(기타)")
     @ColumnPosition(33)
 	private String addressOther;
+
+	@ManyToOne
+	@JoinColumn(name="NO_DEPARTMENT", referencedColumnName = "NO_DEPARTMENT", insertable = false, updatable = false)
+	private Department department;
 
 /*
 	@OneToOne

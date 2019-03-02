@@ -21,6 +21,8 @@ public class SessionUser implements UserDetails {
 
     private Integer noEmployee;
 
+    private Integer noDepartment;
+
     private Locale locale;
 
     private String timeZone;

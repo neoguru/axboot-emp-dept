@@ -63,6 +63,7 @@ public class EmployeeService extends BaseService<Employee, Integer> {
     	String authGroup = SessionUtils.getCurrentUser().getAuthGroupList().get(0);
     	
    	 	Integer noEmployee = requestParams.getInt("noEmployee");
+   	 	Integer headNoDepartment = requestParams.getInt("headNoDepartment");
    	 	String headYnRetire = requestParams.getString("headYnRetire");
        String headNmEmployee = requestParams.getString("headNmEmployee");
        
@@ -73,6 +74,10 @@ public class EmployeeService extends BaseService<Employee, Integer> {
        if (noEmployee > 0) {
            builder.and(qEmployee.noEmployee.eq(noEmployee));
        }
+       if (headNoDepartment > 0){
+           builder.and(qEmployee.noDepartment.eq(headNoDepartment));
+       } 
+       
        if (isNotEmpty(headYnRetire)){
            builder.and(qEmployee.ynRetire.eq(headYnRetire));
        }  
@@ -80,7 +85,7 @@ public class EmployeeService extends BaseService<Employee, Integer> {
            builder.and(qEmployee.nmEmployee.like(Expressions.asString("%").concat(headNmEmployee).concat("%")));
        }  
 
-       List<Employee> list = select().from(qEmployee).where(builder).orderBy(qEmployee.ynRetire.asc() ,  qEmployee.noEmployee.desc()).fetch();
+       List<Employee> list = select().from(qEmployee).where(builder).orderBy(qEmployee.ynRetire.asc() , qEmployee.noDepartment.asc() , qEmployee.noEmployee.desc()).fetch();
 
        for (Employee emp : list){  
   	   		emp.setUser(userService.getUserByNoEmployee(emp.getNoEmployee())); 	
