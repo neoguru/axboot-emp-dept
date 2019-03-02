@@ -147,6 +147,9 @@
         <mybatis.version>3.3.0</mybatis.version>
         <mybatis.spring.version>1.2.3</mybatis.spring.version>
         <mysql.connector.version>5.1.37</mysql.connector.version>
+        <sqlserver.connector.version>6.3.5.jre8-preview</sqlserver.connector.version>
+        <postgresql.connector.version>42.1.4</postgresql.connector.version>
+        <mariadb.connector.version>2.4.0</mariadb.connector.version>
 
         <reflections.version>0.9.10</reflections.version>
 
@@ -361,6 +364,25 @@
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mariadb.jdbc</groupId>
+                <artifactId>mariadb-java-client</artifactId>
+                <version>${mariadb.connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${sqlserver.connector.version}</version>
+                <scope>test</scope>                		  
             </dependency>
 
 
