@@ -1,4 +1,4 @@
-package ${basePackage}.domain.department;
+package ${basePackage}.domain.base.department;
 
 import ${basePackage}.domain.BaseJpaModel;
 

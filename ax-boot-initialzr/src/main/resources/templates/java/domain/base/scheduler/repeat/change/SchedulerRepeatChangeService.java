@@ -1,8 +1,8 @@
-package ${basePackage}.domain.scheduler.repeat.change;
+package ${basePackage}.domain.base.scheduler.repeat.change;
 
 import ${basePackage}.domain.BaseService;
-import ${basePackage}.domain.scheduler.Scheduler;
-import ${basePackage}.domain.scheduler.repeat.SchedulerRepeat;
+import ${basePackage}.domain.base.scheduler.Scheduler;
+import ${basePackage}.domain.base.scheduler.repeat.SchedulerRepeat;
 
 import org.springframework.stereotype.Service;
 

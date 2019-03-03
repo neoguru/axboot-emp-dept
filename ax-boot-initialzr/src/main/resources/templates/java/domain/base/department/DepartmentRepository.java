@@ -1,9 +1,9 @@
-package ${basePackage}.domain.notice;
+package ${basePackage}.domain.base.department;
 
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface NoticeRepository extends AXBootJPAQueryDSLRepository<Notice, Integer> {
+public interface DepartmentRepository extends AXBootJPAQueryDSLRepository<Department, Integer> {
 }

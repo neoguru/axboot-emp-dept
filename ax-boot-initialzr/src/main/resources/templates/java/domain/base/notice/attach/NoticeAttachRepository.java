@@ -1,4 +1,4 @@
-package ${basePackage}.domain.notice.attach;
+package ${basePackage}.domain.base.notice.attach;
 
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 

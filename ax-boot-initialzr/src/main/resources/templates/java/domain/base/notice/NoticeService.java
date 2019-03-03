@@ -1,8 +1,8 @@
-package ${basePackage}.domain.notice;
+package ${basePackage}.domain.base.notice;
 
 import ${basePackage}.domain.BaseService;
-import ${basePackage}.domain.notice.attach.NoticeAttach;
-import ${basePackage}.domain.notice.attach.NoticeAttachService;
+import ${basePackage}.domain.base.notice.attach.NoticeAttach;
+import ${basePackage}.domain.base.notice.attach.NoticeAttachService;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,7 @@
-package ${basePackage}.domain.scheduler;
+package ${basePackage}.domain.base.scheduler;
 
-import ${basePackage}.domain.scheduler.repeat.QSchedulerRepeat;
-import ${basePackage}.domain.scheduler.repeat.change.QSchedulerRepeatChange;
+import ${basePackage}.domain.base.scheduler.repeat.QSchedulerRepeat;
+import ${basePackage}.domain.base.scheduler.repeat.change.QSchedulerRepeatChange;
 
 import java.io.Serializable;
 

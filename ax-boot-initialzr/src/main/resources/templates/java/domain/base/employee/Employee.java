@@ -1,7 +1,7 @@
-package ${basePackage}.domain.employee;
+package ${basePackage}.domain.base.employee;
 
 import ${basePackage}.domain.BaseJpaModel;
-import ${basePackage}.domain.department.Department;
+import ${basePackage}.domain.base.department.Department;
 import ${basePackage}.domain.user.User;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;

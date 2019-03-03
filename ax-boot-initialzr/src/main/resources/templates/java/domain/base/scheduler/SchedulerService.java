@@ -1,10 +1,10 @@
-package ${basePackage}.domain.scheduler;
+package ${basePackage}.domain.base.scheduler;
 
 import ${basePackage}.domain.user.User;
 import ${basePackage}.domain.BaseService;
-import ${basePackage}.domain.scheduler.repeat.SchedulerRepeatService;
-import ${basePackage}.domain.scheduler.repeat.change.SchedulerRepeatChange;
-import ${basePackage}.domain.scheduler.repeat.change.SchedulerRepeatChangeService;
+import ${basePackage}.domain.base.scheduler.repeat.SchedulerRepeatService;
+import ${basePackage}.domain.base.scheduler.repeat.change.SchedulerRepeatChange;
+import ${basePackage}.domain.base.scheduler.repeat.change.SchedulerRepeatChangeService;
 
 import org.springframework.stereotype.Service;
 

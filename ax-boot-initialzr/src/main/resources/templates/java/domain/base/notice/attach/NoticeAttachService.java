@@ -1,7 +1,7 @@
-package ${basePackage}.domain.notice.attach;
+package ${basePackage}.domain.base.notice.attach;
 
 import ${basePackage}.domain.BaseService;
-import ${basePackage}.domain.notice.Notice;
+import ${basePackage}.domain.base.notice.Notice;
 import ${basePackage}.domain.file.UploadParameters;
 
 import org.apache.commons.io.FileUtils;

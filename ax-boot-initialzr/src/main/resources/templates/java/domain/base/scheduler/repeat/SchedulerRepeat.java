@@ -1,8 +1,8 @@
-package ${basePackage}.domain.scheduler.repeat;
+package ${basePackage}.domain.base.scheduler.repeat;
 
 import ${basePackage}.domain.BaseJpaModel;
-import ${basePackage}.domain.scheduler.Scheduler;
-import ${basePackage}.domain.scheduler.repeat.change.SchedulerRepeatChange;
+import ${basePackage}.domain.base.scheduler.Scheduler;
+import ${basePackage}.domain.base.scheduler.repeat.change.SchedulerRepeatChange;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;
 

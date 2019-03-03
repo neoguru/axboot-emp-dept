@@ -1,4 +1,4 @@
-package ${basePackage}.domain.scheduler.repeat.change;
+package ${basePackage}.domain.base.scheduler.repeat.change;
 
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 

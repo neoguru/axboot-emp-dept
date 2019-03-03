@@ -1,4 +1,4 @@
-package ${basePackage}.domain.employee;
+package ${basePackage}.domain.base.employee;
 
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 import org.springframework.data.jpa.repository.JpaRepository;

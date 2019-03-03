@@ -1,4 +1,4 @@
-package ${basePackage}.domain.employee;
+package ${basePackage}.domain.base.employee;
 
 import ${basePackage}.domain.BaseService;
 import ${basePackage}.domain.user.UserService;

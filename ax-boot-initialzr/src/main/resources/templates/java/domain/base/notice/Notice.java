@@ -1,7 +1,7 @@
-package ${basePackage}.domain.notice;
+package ${basePackage}.domain.base.notice;
 
 import ${basePackage}.domain.BaseJpaModel;
-import ${basePackage}.domain.notice.attach.NoticeAttach;
+import ${basePackage}.domain.base.notice.attach.NoticeAttach;
 import ${basePackage}.domain.user.User;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;

@@ -1,9 +1,9 @@
-package ${basePackage}.domain.scheduler;
+package ${basePackage}.domain.base.notice;
 
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SchedulerRepository extends AXBootJPAQueryDSLRepository<Scheduler, Integer> {
+public interface NoticeRepository extends AXBootJPAQueryDSLRepository<Notice, Integer> {
 }
