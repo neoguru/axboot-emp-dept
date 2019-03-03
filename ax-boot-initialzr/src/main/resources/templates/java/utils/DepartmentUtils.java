@@ -1,7 +1,7 @@
 package ${basePackage}.utils;
 
-import ${basePackage}.domain.department.Department;
-import ${basePackage}.domain.department.DepartmentService;
+import ${basePackage}.domain.base.department.Department;
+import ${basePackage}.domain.base.department.DepartmentService;
 
 import com.chequer.axboot.core.code.AXBootTypes;
 import com.chequer.axboot.core.context.AppContextManager;

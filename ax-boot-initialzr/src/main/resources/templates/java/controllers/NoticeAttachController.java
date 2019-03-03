@@ -1,7 +1,7 @@
 package ${basePackage}.controllers;
 
-import ${basePackage}.domain.notice.attach.NoticeAttach;
-import ${basePackage}.domain.notice.attach.NoticeAttachService;
+import ${basePackage}.domain.base.notice.attach.NoticeAttach;
+import ${basePackage}.domain.base.notice.attach.NoticeAttachService;
 import ${basePackage}.domain.file.UploadParameters;
 
 import com.chequer.axboot.core.api.response.ApiResponse;

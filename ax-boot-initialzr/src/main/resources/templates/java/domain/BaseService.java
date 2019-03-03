@@ -9,12 +9,14 @@ import ${basePackage}.domain.user.QUser;
 import ${basePackage}.domain.user.auth.QUserAuth;
 import ${basePackage}.domain.user.auth.menu.QAuthGroupMenu;
 import ${basePackage}.domain.user.role.QUserRole;
-import ${basePackage}.domain.notice.QNotice;
-import ${basePackage}.domain.notice.attach.QNoticeAttach;
-import ${basePackage}.domain.scheduler.QScheduler;
-import ${basePackage}.domain.scheduler.repeat.QSchedulerRepeat;
-import ${basePackage}.domain.scheduler.repeat.change.QSchedulerRepeatChange;
-import ${basePackage}.domain.employee.QEmployee;
+
+import ${basePackage}.domain.base.notice.QNotice;
+import ${basePackage}.domain.base.notice.attach.QNoticeAttach;
+import ${basePackage}.domain.base.scheduler.QScheduler;
+import ${basePackage}.domain.base.scheduler.repeat.QSchedulerRepeat;
+import ${basePackage}.domain.base.scheduler.repeat.change.QSchedulerRepeatChange;
+import ${basePackage}.domain.base.employee.QEmployee;
+
 import com.chequer.axboot.core.domain.base.AXBootBaseService;
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 

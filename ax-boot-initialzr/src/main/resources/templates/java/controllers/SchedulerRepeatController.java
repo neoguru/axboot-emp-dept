@@ -1,9 +1,9 @@
 package ${basePackage}.controllers;
 
 import ${basePackage}.domain.user.User;
-import ${basePackage}.domain.scheduler.Scheduler;
-import ${basePackage}.domain.scheduler.repeat.SchedulerRepeat;
-import ${basePackage}.domain.scheduler.repeat.SchedulerRepeatService;
+import ${basePackage}.domain.base.scheduler.Scheduler;
+import ${basePackage}.domain.base.scheduler.repeat.SchedulerRepeat;
+import ${basePackage}.domain.base.scheduler.repeat.SchedulerRepeatService;
 
 import com.chequer.axboot.core.api.response.Responses;
 import com.chequer.axboot.core.controllers.BaseController;

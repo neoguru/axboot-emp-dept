@@ -3,7 +3,7 @@ package ${basePackage}.domain.user;
 import ${basePackage}.domain.BaseJpaModel;
 import ${basePackage}.domain.user.auth.UserAuth;
 import ${basePackage}.domain.user.role.UserRole;
-import ${basePackage}.domain.employee.Employee;
+import ${basePackage}.domain.base.employee.Employee;
 import com.chequer.axboot.core.annotations.ColumnPosition;
 import com.chequer.axboot.core.annotations.Comment;
 import com.chequer.axboot.core.code.AXBootTypes;

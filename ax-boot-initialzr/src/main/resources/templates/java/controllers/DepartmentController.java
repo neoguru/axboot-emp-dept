@@ -1,7 +1,7 @@
 package ${basePackage}.controllers;
 
-import ${basePackage}.domain.department.Department;
-import ${basePackage}.domain.department.DepartmentService;
+import ${basePackage}.domain.base.department.Department;
+import ${basePackage}.domain.base.department.DepartmentService;
 
 import com.chequer.axboot.core.api.response.ApiResponse;
 import com.chequer.axboot.core.api.response.Responses;

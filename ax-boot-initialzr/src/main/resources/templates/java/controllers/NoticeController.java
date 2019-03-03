@@ -1,7 +1,7 @@
 package ${basePackage}.controllers;
 
-import ${basePackage}.domain.notice.Notice;
-import ${basePackage}.domain.notice.NoticeService;
+import ${basePackage}.domain.base.notice.Notice;
+import ${basePackage}.domain.base.notice.NoticeService;
 
 import com.chequer.axboot.core.api.response.ApiResponse;
 import com.chequer.axboot.core.api.response.Responses;
